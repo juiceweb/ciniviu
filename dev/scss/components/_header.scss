@@ -1,7 +1,11 @@
 .header{
 	background: $white;
+	box-shadow: shadow(1);
 	padding: 1vw;
-	font-family: $header;
-	color: $black;
-	font-size: 1.8vw;
+	letter-spacing: -3px;
+	line-height: 5vw;
+
+	h1{
+		color: $blue;
+	}
 }

@@ -5,11 +5,16 @@
 }
 
 //Fonts
-@import 'https://fonts.googleapis.com/css?family=Lato|Montserrat:400,700';
+@import 'https://fonts.googleapis.com/css?family=Lato:400,700|Quicksand:400,700';
 
 //imports
 @import 'imports/fonts';
 @import 'imports/colors';
+@import 'imports/shadows';
+@import 'imports/transform';
+@import 'imports/animations';
 
 //components
+@import 'components/general';
 @import 'components/header';
+@import 'components/content';

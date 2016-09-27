@@ -1,0 +1,11 @@
+.container{
+	margin: auto;
+	width: 90%;
+	max-width: 1920px;
+
+	h2{
+		padding: 2vw 0;
+	}
+
+	@import 'includes/film-cards';
+}
