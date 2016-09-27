@@ -3,3 +3,13 @@
 	margin: 0;
 	padding: 0;
 }
+
+//Fonts
+@import 'https://fonts.googleapis.com/css?family=Lato|Montserrat:400,700';
+
+//imports
+@import 'imports/fonts';
+@import 'imports/colors';
+
+//components
+@import 'components/header';

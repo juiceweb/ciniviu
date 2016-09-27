@@ -1,6 +1,14 @@
+@import "https://fonts.googleapis.com/css?family=Lato|Montserrat:400,700";
 *, *:after, *:before {
   box-sizing: border-box;
   margin: 0;
   padding: 0; }
+
+.header {
+  background: #eef0f2;
+  padding: 1vw;
+  font-family: "Montserrat", sans-serif;
+  color: #35393d;
+  font-size: 1.8vw; }
 
 /*# sourceMappingURL=style.css.map */

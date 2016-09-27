@@ -1,17 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-class Root extends React.Component {
-	render(){
-		return (
-			<div className="root">
-				<h1>Hello, World!</h1>
-			</div>
-		);
-	}
-}
+import Header from './components/Header.jsx';
 
 ReactDOM.render(
-	<Root />,
-	document.getElementById('root')
+	<Header />,
+	document.getElementById('header')
 );
