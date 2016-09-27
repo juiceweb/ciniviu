@@ -1,0 +1,30 @@
+{
+  "name": "ciniviu",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "babel": "babel dev/js --watch --out-dir build/js",
+    "sass": "sass --watch dev/scss:build/css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juiceweb/ciniviu.git"
+  },
+  "author": "JuiceWeb",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/juiceweb/ciniviu/issues"
+  },
+  "homepage": "https://github.com/juiceweb/ciniviu#readme",
+  "dependencies": {
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.14.0",
+    "babel-core": "^6.14.0",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-preset-react": "^6.11.1"
+  }
+}
