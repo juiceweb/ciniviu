@@ -5,13 +5,13 @@ class Root extends React.Component {
 	render(){
 		return (
 			<div className="root">
-				<h1>Hello World!</h1>
+				<h1>Hello, World!</h1>
 			</div>
 		);
 	}
 }
 
-ReactDom.render(
+ReactDOM.render(
 	<Root />,
 	document.getElementById('root')
 );
