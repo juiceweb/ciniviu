@@ -1,7 +1,6 @@
 import React from 'react';
 
 import Icon from './includes/Icon.jsx';
-import Loader from './includes/Loader.jsx';
 import {buildUrl, locale} from './includes/config.js';
 
 export default class UpcomingFilms extends React.Component {
@@ -15,26 +14,20 @@ export default class UpcomingFilms extends React.Component {
 	}
 
 	componentDidMount() {
-		let url = buildUrl('/movie/upcoming', {
+		let url = buildUrl('/movie/now_playing', {
 			'api_key': '088583b3c82b77eaf1d6cd0ea2aac19f',
 			'language': locale['language']
+		})
+		fetch(
+			url,
+			{
+				method: 'GET',
+				cache: false,
+				mode: 'cors'
+			}
+		).then(function(response) {
+			console.log(response);
 		});
-
-		fetch(url, {
-			method: 'GET',
-			cache: false,
-			mode: 'cors'
-		}).then((response) => {
-			return response.json();
-		}).then((data) => {
-			this.setState({
-				films: data.results
-			});
-		});
-	}
-
-	componentDidUpdate(){
-		console.log('state: ', this.state);
 	}
 
 	render(){
@@ -42,18 +35,16 @@ export default class UpcomingFilms extends React.Component {
 			<div className="container">
 				<h2>Upcoming Films</h2>
 
-				{this.state.films ?
-					<div className="films">
-						{this.renderFilms()}
-						{this.renderSpacer()}
-					</div>
-				: <Loader />}
+				<div className="films">
+					{this.renderFilms()}
+					{this.renderSpacer()}
+				</div>
 			</div>
 		)
 	}
 
 	renderFilms(){
-		return( this.state.films.map(film => <Film key={film.id} film={film} baseUrl={this.state.baseUrl}/>) );
+		return(this.state.films.map(film => <Film key={film.id} film={film} baseUrl={this.state.baseUrl}/>) );
 	}
 
 	renderSpacer(){

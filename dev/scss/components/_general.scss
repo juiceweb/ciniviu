@@ -39,7 +39,7 @@ h2{ font-size: 2.6em; }
 		}
 	}
 
-	&:not(.no-hover):hover{
+	&:hover{
 		box-shadow: shadow(5);
 		//@include transform(scale(1.1));
 	}
