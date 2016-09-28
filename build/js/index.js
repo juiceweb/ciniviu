@@ -58,6 +58,10 @@
 
 	var _Header2 = _interopRequireDefault(_Header);
 
+	var _Footer = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./components/Footer.jsx\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+	var _Footer2 = _interopRequireDefault(_Footer);
+
 	var _UpcomingFilms = __webpack_require__(173);
 
 	var _UpcomingFilms2 = _interopRequireDefault(_UpcomingFilms);
@@ -67,6 +71,8 @@
 	_reactDom2.default.render(_react2.default.createElement(_Header2.default, null), document.getElementById('header'));
 
 	_reactDom2.default.render(_react2.default.createElement(_UpcomingFilms2.default, null), document.getElementById('body'));
+
+	_reactDom2.default.render(_react2.default.createElement(_Footer2.default, null), document.getElementById('footer'));
 
 /***/ },
 /* 1 */

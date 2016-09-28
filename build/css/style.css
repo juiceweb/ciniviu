@@ -96,12 +96,9 @@ h2 {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between; }
-    .container .films:after {
-      content: "";
-      flex: auto; }
     .container .films .film {
-      flex: 1 0 185px;
-      width: 100%;
+      flex: 1 1 185px;
+      width: 50%;
       max-width: 185px;
       height: 274px;
       background-position: center;
