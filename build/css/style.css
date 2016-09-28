@@ -115,4 +115,24 @@ h2 {
         height: 100%;
         display: block; }
 
+.footer {
+  background: #35393d; }
+  .footer .wrapper {
+    color: #999ea3;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    padding: 3em 0; }
+    .footer .wrapper p {
+      height: 24px;
+      line-height: 24px; }
+      .footer .wrapper p i {
+        vertical-align: middle; }
+    .footer .wrapper a {
+      color: #999ea3;
+      text-decoration: none;
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
+      .footer .wrapper a:hover {
+        color: #eef0f2; }
+
 /*# sourceMappingURL=style.css.map */
