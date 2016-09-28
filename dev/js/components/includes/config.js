@@ -1,5 +1,11 @@
 let apiUrl = 'https://api.themoviedb.org/3';
 
+
+
+export let locale = {
+	language: 'en-GB'
+}
+
 export function buildUrl(endpoint, params) {
 	if(typeof params !== 'object') throw 'Expected params to be an object';
 

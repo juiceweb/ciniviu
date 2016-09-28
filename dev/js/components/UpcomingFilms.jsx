@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Icon from './includes/Icon.jsx';
-import {apiUrl} from './includes/config.js';
+import {buildUrl, locale} from './includes/config.js';
 
 export default class UpcomingFilms extends React.Component {
 	constructor(){
@@ -14,14 +14,20 @@ export default class UpcomingFilms extends React.Component {
 	}
 
 	componentDidMount() {
+		let url = buildUrl('/movie/now_playing', {
+			'api_key': '088583b3c82b77eaf1d6cd0ea2aac19f',
+			'language': locale['language']
+		})
 		fetch(
-			apiUrl+'/movie/now_playing',
+			url,
 			{
 				method: 'GET',
-				
+				cache: false,
+				mode: 'cors'
 			}
-		);
-		)
+		).then(function(response) {
+			console.log(response);
+		});
 	}
 
 	render(){
@@ -54,13 +60,13 @@ class Film extends React.Component {
 	render(){
 		return(
 			<div className="card hover-actions film" style={{backgroundImage: 'url('+this.props.baseUrl+'w185'+this.props.film.poster_path+')'}}>
-				<a className="posterlink" href={'./film/'+this.props.film.id} />
+				<a className="posterlink" href={'/film/'+this.props.film.id} />
 				<div className="card-actions">
 					<a href="#" className="left icon bookmark" data-film={this.props.film.id} title="Bookmark">
 						<Icon name="bookmark border" />
 					</a>
 
-					<a href={'./film/'+this.props.film.id} className="right">
+					<a href={'/film/'+this.props.film.id} className="right">
 						View
 					</a>
 				</div>
