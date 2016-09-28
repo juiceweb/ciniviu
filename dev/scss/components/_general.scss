@@ -11,3 +11,74 @@ h1, h2, h3, h4, h5{
 
 h1{ font-size: 4em; }
 h2{ font-size: 2.6em; }
+
+
+.wrapper{
+	width: 100%;
+	max-width: 1920px;
+	margin: auto;
+}
+
+.card{
+	border-radius: 3px;
+	box-shadow: shadow(1);
+	transition: $transition;
+	position: relative;
+
+	&.hover-actions{
+		overflow: hidden;
+
+		&:hover{
+			.card-actions{
+				@include transform(translateY(0));
+			}
+		}
+
+		.card-actions{
+			@include transform(translateY(100%));
+		}
+	}
+
+	&:hover{
+		box-shadow: shadow(5);
+		//@include transform(scale(1.1));
+	}
+
+	.card-actions{
+		position: absolute;
+		right: 0; bottom: 0; left: 0;
+		background: $white;
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		flex-direction: row;
+		padding: 8px;
+		transition: $transition;
+		box-shadow: 0 10px 50px 0 rgba(0, 0, 0, 0.75);
+
+		a{
+			color: darken($dgrey, 30%);
+			height: 24px;
+			text-transform: uppercase;
+			text-decoration: none;
+			line-height: 24px;
+			transition: $transition;
+
+			&.left{
+				margin-right: auto;
+			}
+
+			&:not(.icon){
+				height: 36px; line-height: 36px;
+				padding: 0 8px;
+				margin: 0 8px;
+
+				&:last-child{ margin-right: 0; }
+
+				&:hover{
+					color: $blue;
+				}
+			}
+		}
+	}
+}
