@@ -1,7 +1,5 @@
 let apiUrl = 'https://api.themoviedb.org/3';
 
-
-
 export let locale = {
 	language: 'en-GB'
 }
@@ -26,7 +24,7 @@ export function buildUrl(endpoint, params) {
 			default:
 				params[param] = params[param].toString();
 		}
-		params[param] = encodeURIComponent(param);
+		params[param] = encodeURIComponent(params[param]);
 		queryArray.push(`${param}=${params[param]}`);
 	}
 	return apiUrl+endpoint+'?'+queryArray.join('&');
