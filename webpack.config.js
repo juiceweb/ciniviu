@@ -1,8 +1,8 @@
 var webpack = require('webpack');
 var path = require('path');
 
-var BUILD_DIR = path.resolve(__dirname, 'build/js');
-var DEV_DIR = path.resolve(__dirname, 'dev/js');
+const BUILD_DIR = path.resolve(__dirname, 'build/js');
+const DEV_DIR = path.resolve(__dirname, 'dev/js');
 
 var config = {
 	entry: DEV_DIR+'/index.jsx',
@@ -18,7 +18,17 @@ var config = {
 				loader: 'babel'
 			}
 		]
-	}
+	},
+	plugins: [
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false,
+            },
+            output: {
+                comments: false,
+            },
+        }),
+    ]
 };
 
 module.exports = config;
