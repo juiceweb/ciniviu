@@ -1,7 +1,8 @@
 import React from 'react';
 
 import Icon from './includes/Icon.jsx';
-import {buildUrl, locale} from './includes/config.js';
+import Loader from './includes/Loader.jsx';
+import {buildUrl, locale, apiKey} from './includes/config.js';
 
 export default class UpcomingFilms extends React.Component {
 	constructor(){
@@ -15,19 +16,21 @@ export default class UpcomingFilms extends React.Component {
 
 	componentDidMount() {
 		let url = buildUrl('/movie/now_playing', {
-			api_key: '088583b3c82b77eaf1d6cd0ea2aac19f',
+			api_key: apiKey,
 			language: locale['language']
-		})
-		fetch(
-			url,
-			{
+		});
+
+		let self = this;
+
+		fetch(url, {
 				method: 'GET',
 				cache: false,
 				mode: 'cors'
-			}
-		).then(function(response) {
-			this.setState({films:response});
-		}.bind(this));
+		}).then(res => res.json()).then(json => {
+			self.setState({
+				films: json.results
+			});
+		}).catch(err => console.error(err));
 	}
 
 	render(){
@@ -37,19 +40,18 @@ export default class UpcomingFilms extends React.Component {
 				<h2>Upcoming Films</h2>
 
 				<div className="films">
-					{this.renderFilms()}
-					{this.renderSpacer()}
+					{this.state.films ? [this.renderFilms(), this.renderSpacer()] : this.renderLoader()}
 				</div>
 			</div>
-		)
+		);
+	}
+
+	renderLoader(){
+		return <Loader />
 	}
 
 	renderFilms(){
-		console.log(this);
-		return;
-		if(this.state) {
-			return(this.state.films.map(film => <Film key={film.id} film={film} baseUrl={this.state.baseUrl}/>));
-		}
+		return(this.state.films.map(film => <Film key={film.id} film={film} baseUrl={this.state.baseUrl}/>));
 	}
 
 	renderSpacer(){
@@ -63,7 +65,7 @@ export default class UpcomingFilms extends React.Component {
 
 class Film extends React.Component {
 	render(){
-		return(
+		return this.props.film.poster_path ? (
 			<div className="card hover-actions film" style={{backgroundImage: 'url('+this.props.baseUrl+'w185'+this.props.film.poster_path+')'}}>
 				<a className="posterlink" href={'/film/'+this.props.film.id} />
 				<div className="card-actions">
@@ -76,6 +78,6 @@ class Film extends React.Component {
 					</a>
 				</div>
 			</div>
-		)
+		) : null;
 	}
 }

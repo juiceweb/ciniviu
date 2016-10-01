@@ -1,6 +1,7 @@
 let apiUrl = 'https://api.themoviedb.org/3';
 // Private variable to store the url the the api
 
+export let apiKey = '088583b3c82b77eaf1d6cd0ea2aac19f';
 
 export let locale = {
 	language: 'en-GB'
