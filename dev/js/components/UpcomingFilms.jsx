@@ -15,8 +15,8 @@ export default class UpcomingFilms extends React.Component {
 
 	componentDidMount() {
 		let url = buildUrl('/movie/now_playing', {
-			'api_key': '088583b3c82b77eaf1d6cd0ea2aac19f',
-			'language': locale['language']
+			api_key: '088583b3c82b77eaf1d6cd0ea2aac19f',
+			language: locale['language']
 		})
 		fetch(
 			url,
@@ -26,11 +26,12 @@ export default class UpcomingFilms extends React.Component {
 				mode: 'cors'
 			}
 		).then(function(response) {
-			console.log(response);
-		});
+			this.setState({films:response});
+		}.bind(this));
 	}
 
 	render(){
+		console.log(this.state.films);
 		return (
 			<div className="container">
 				<h2>Upcoming Films</h2>
@@ -44,7 +45,11 @@ export default class UpcomingFilms extends React.Component {
 	}
 
 	renderFilms(){
-		return(this.state.films.map(film => <Film key={film.id} film={film} baseUrl={this.state.baseUrl}/>) );
+		console.log(this);
+		return;
+		if(this.state) {
+			return(this.state.films.map(film => <Film key={film.id} film={film} baseUrl={this.state.baseUrl}/>));
+		}
 	}
 
 	renderSpacer(){
