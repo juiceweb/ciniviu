@@ -8,6 +8,8 @@ export default class UpcomingFilms extends React.Component {
 	constructor(){
 		super();
 
+		console.log(apiKey, locale);
+
 		this.state = {
 			baseUrl: 'https://image.tmdb.org/t/p/',
 			films: false
@@ -34,7 +36,7 @@ export default class UpcomingFilms extends React.Component {
 	}
 
 	render(){
-		console.log(this.state.films);
+		console.log('Films: ', this.state.films);
 		return (
 			<div className="container">
 				<h2>Upcoming Films</h2>
