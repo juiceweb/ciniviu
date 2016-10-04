@@ -37,13 +37,40 @@ export default class Film extends React.Component {
 
 	render(){
 		let film = this.state.film;
-		let backdrop = film.backdrop_path ? this.state.baseUrl+'w1280'+film.backdrop_path : null;
+		let backdrop = film.backdrop_path ? this.state.baseUrl+'w1280'+film.backdrop_path : false;
 
-		console.log(backdrop, film);
-		
+		console.log(film);
+
 		return film ? (
-			<div className="container" style={{backgroundImage: 'url('+backdrop+')'}}>
-				<h1>{film.title}</h1>
+			<div className="film-single" style={backdrop ? {backgroundImage: 'url('+backdrop+')'} : null}>
+				<div className="container">
+					<h1>{film.title}</h1>
+
+					<div className="content">
+						<div className="left">
+							<div className="card nohover overview">
+								<p className="subtitle">Description</p>
+								<p>{film.overview}</p>
+
+								<br />
+
+								<p className="subtitle">Genres</p>
+								<p>{film.genres.map((genre, i, a) => (
+										<span>
+											<a href={"/genre/"+genre.id}>{genre.name}</a>
+											{i+1 != a.length ? ", " : null}
+										</span>
+								))}</p>
+							</div>
+						</div>
+
+						<div className="right">
+							<div className="card nohover poster">
+								<img src={this.state.baseUrl+'w185'+film.poster_path} />
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		) : <Loader />;
 	}

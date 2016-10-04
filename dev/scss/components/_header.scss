@@ -1,16 +1,26 @@
-.header{
+#header{
 	background: $white;
 	box-shadow: shadow(1);
-	padding: 1em;
-	letter-spacing: -3px;
-	line-height: 5em;
+	position: relative;
+	z-index: 10;
 
-	h1{
-		color: $blue;
-	}
+	.header{
+		padding: 1em;
+		letter-spacing: -3px;
+		line-height: 5em;
 
-	.logo{
-		max-width: 350px;
-		width: 100%;
+		h1{
+			color: $blue;
+		}
+
+		.wrapper{
+			display: flex;
+			align-items: center;
+
+			.logo{
+				max-width: 250px;
+				width: 100%;
+			}
+		}
 	}
 }

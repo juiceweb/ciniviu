@@ -19,7 +19,7 @@ var config = {
 			}
 		]
 	},
-	plugins: [
+	/*plugins: [
         new webpack.optimize.UglifyJsPlugin({
             compress: {
                 warnings: false,
@@ -28,7 +28,7 @@ var config = {
                 comments: false,
             },
         }),
-    ]
+    ]*/
 };
 
 module.exports = config;

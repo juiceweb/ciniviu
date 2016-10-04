@@ -24,6 +24,7 @@ h2{ font-size: 2.6em; }
 	box-shadow: shadow(1);
 	transition: $transition;
 	position: relative;
+	overflow: hidden;
 
 	&.hover-actions{
 		overflow: hidden;
@@ -39,7 +40,7 @@ h2{ font-size: 2.6em; }
 		}
 	}
 
-	&:hover{
+	&:not(.nohover):hover{
 		box-shadow: shadow(5);
 		//@include transform(scale(1.1));
 	}
